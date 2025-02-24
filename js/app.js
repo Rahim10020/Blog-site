@@ -27,8 +27,12 @@ const formCloseButton = document.querySelector('#form-close-btn')
 const searchFormContainer = document.querySelector('#search-form-container')
 
 formOpenButton.addEventListener('click', () => searchFormContainer.classList.add('activated'))
-
+formCloseButton.addEventListener('click', () => searchFormContainer.classList.remove('activated'))
 // close search from popup with ESC key press
+window.addEventListener('keyup', (event) => {
+  if (event.key === 'Escape') searchFormContainer.classList.remove('activated')
+})
+
 // switch theme/ add to local storage
 const bodyElement = document.body
 const themeToggleButton = document.querySelector('#theme-toggle-button')
